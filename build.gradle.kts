@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.3.20"
+    id("com.gradleup.shadow") version "9.4.2"
     application
 }
 
@@ -23,6 +24,8 @@ application {
     mainClass = "me._lisik.mcl.MainKt"
 }
 
-tasks.test {
-    useJUnitPlatform()
+tasks.jar {
+    manifest {
+        attributes["Main-Class"] = "me._lisik.mcl.MainKt"
+    }
 }

@@ -1,6 +1,7 @@
 package me._lisik.mcl
 
 import java.nio.file.Path
+import kotlin.system.exitProcess
 
 fun main() {
     val mcl = Mcl(
@@ -32,4 +33,5 @@ fun main() {
     val exitCode = process.waitFor()
 
     println("[MCL] Minecraft exited with code $exitCode")
+    exitProcess(exitCode)
 }
