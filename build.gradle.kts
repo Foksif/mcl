@@ -1,11 +1,12 @@
 plugins {
     kotlin("jvm") version "2.3.20"
     id("com.gradleup.shadow") version "9.4.2"
+    id("maven-publish")
     application
 }
 
 group = "me._lisik"
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -27,5 +28,13 @@ application {
 tasks.jar {
     manifest {
         attributes["Main-Class"] = "me._lisik.mcl.MainKt"
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
     }
 }
